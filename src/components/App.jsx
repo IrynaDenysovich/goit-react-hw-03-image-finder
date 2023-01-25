@@ -27,13 +27,15 @@ export class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    var queryElement = event.target.elements.query;
-    if (queryElement.value !== this.state.query) {
+    let form = event.target;
+    let queryElement = form.elements.query;
+    if (queryElement.value !== ''){
       this.setState({
         images: [],
         page: 1,
         query: queryElement.value,
       });
+      form.reset();
     }
   };
 
